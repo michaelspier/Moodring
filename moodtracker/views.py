@@ -1,11 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from datetime import datetime
+from datetime import timedelta
 
 def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 
 def calendar_view(request, year, month, day, view_period):
-    return HttpResponse("Hello, World.")
+    start_date = datetime.strptime('%s/%s/%s' % (year, month, day), '%Y/%m/%d')
+    end_date = start_date + timedelta(days=int(view_period))
+    output = 'I should be showing events and moods from %s to %s' % (start_date.strftime("%m/%d/%Y"), end_date.strftime("%m/%d/%Y"))
+    return HttpResponse(output)
 
 def mood_view(request, mood_id):
     return HttpResponse("Hello, World.")
