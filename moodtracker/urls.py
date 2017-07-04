@@ -9,7 +9,7 @@ urlpatterns = [
     #The Mood View, ex: /moodtracker/mood/5/
     url(r'^mood/(?P<mood_id>[0-9]+)/$', views.mood_view, name='mood_detail'),
     #The event view, ex: /moodtracker/event/5/
-    url(r'^event/(?P<mood_id>[0-9]+)/$', views.event_view, name='event_detail'),
+    url(r'^event/(?P<event_id>[0-9]+)/$', views.event_view, name='event_detail'),
     #the url below drives the calendar view, which is expecting URLS in
     #the following format: /moodtracker/calendar/2017/03/01/30/, where the
     #numbers after calendar represent the year, month, day, and period of

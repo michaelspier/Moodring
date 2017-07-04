@@ -16,7 +16,8 @@ def calendar_view(request, year, month, day, view_period):
     #First, build a list of days
     all_the_days = Day.objects.all().filter(date__range=(start_date, end_date))
 
-    output = 'I should be showing events and moods from %s to %s' % (start_date.strftime("%m/%d/%Y"), end_date.strftime("%m/%d/%Y"))
+    #Old Code: Output formerly showed the date range for the all_the_days filter
+    #output = 'I should be showing events and moods from %s to %s' % (start_date.strftime("%m/%d/%Y"), end_date.strftime("%m/%d/%Y"))
     return HttpResponse(all_the_days)
 
 def mood_view(request, mood_id):
